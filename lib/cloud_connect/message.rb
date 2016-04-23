@@ -31,9 +31,9 @@ module CloudConnect
       @recipient = payload['recipient']
       @length = payload['length']
       @b64_payload = payload['b64_payload']
-      @recorded_at = Time.parse(payload['recorded_at'])
-      @received_at = Time.parse(payload['received_at'])
-      @created_at = Time.parse(payload['created_at'])
+      @recorded_at = Time.parse(payload['recorded_at']) if payload['recorded_at']
+      @received_at = Time.parse(payload['received_at']) if payload['received_at']
+      @created_at = Time.parse(payload['created_at']) if payload['created_at']
       @url = payload['url']
     end
 

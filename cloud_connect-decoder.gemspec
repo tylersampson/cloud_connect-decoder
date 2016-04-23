@@ -11,6 +11,8 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'Utility to decode Cloud Connect notifications'
   spec.description   = 'Utility to decode Cloud Connect notifications. Provides helper models'
+  spec.homepage      = 'https://github.com/tylersampson/cloud_connect-decoder'
+  spec.licenses         = ['MIT']
 
   spec.files         = Dir['README.md', 'lib/**/*']
   spec.bindir        = "exe"
