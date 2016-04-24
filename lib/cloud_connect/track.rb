@@ -22,7 +22,7 @@ module CloudConnect
       @loc = payload['loc']
       @connection_id = payload['connection_id']
       @index = payload['index']
-      @next_index = (@index || 0) + payload['fields'].count
+      @next_index = (@index || 0) + payload['fields'].count + 1
       @fields = payload['fields'].collect { |k,v| [k, CloudConnect::Field.new(k, v['b64_value'])] }.to_h
     end
 
