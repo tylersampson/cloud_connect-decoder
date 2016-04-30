@@ -1,3 +1,5 @@
+require 'json/ext'
+
 module CloudConnect
   class Track
     attr_accessor :asset,
@@ -10,7 +12,8 @@ module CloudConnect
                   :connection_id,
                   :index,
                   :next_index,
-                  :fields
+                  :fields,
+                  :raw_payload
 
     def initialize(payload)
       @asset = payload['asset']
@@ -24,6 +27,7 @@ module CloudConnect
       @index = payload['index']
       @next_index = (@index || 0) + payload['fields'].count + 1
       @fields = payload['fields'].collect { |k,v| [k, CloudConnect::Field.new(k, v['b64_value'])] }.to_h
+      @raw_payload = payload.to_json
     end
 
     def speed
