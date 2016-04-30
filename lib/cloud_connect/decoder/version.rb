@@ -1,5 +1,5 @@
 module CloudConnect
   module Decoder
-    VERSION = "0.2.1"
+    VERSION = "0.2.22"
   end
 end
