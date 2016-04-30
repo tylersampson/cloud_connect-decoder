@@ -87,8 +87,8 @@ module CloudConnect
       @direction ||= (@fields['GPS_DIR'].try(:to_i) || 0) / 100.0
     end
 
-    def panic_button
-      @panic_button ||= @fields['MDI_PANIC_STATE'].try(:to_b)
+    def alarm
+      @panic_button ||= @fields['DIO_ALARM'].try(:to_b)
     end
 
     def inputs
@@ -97,10 +97,6 @@ module CloudConnect
 
     def satellite_fixes
       @satellite_fixes ||= @fields['GPS_FIXED_SAT_NUM'].try(:to_i)
-    end
-
-    def gprs_header
-      @gprs_header ||= @fields['GPRS_HEADER'].try(:to_s)
     end
 
     def rssi
