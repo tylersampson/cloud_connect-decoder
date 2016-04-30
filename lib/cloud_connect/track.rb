@@ -66,13 +66,13 @@ module CloudConnect
 
     def crash_level
       if @fields.has_key? 'MDI_CRASH_DETECTED'
-        severity,status = @fields['MDI_CRASH_DETECTED'].to_s.split(":")
-        status == '2' ? severity.to_i : false
+        _,severity = @fields['MDI_CRASH_DETECTED'].to_s.split(":")
+        severity.to_i
       end
     end
 
     def battery_discharge
-      @battery_discharge ||= @fields['BATT'].try(:to_b)
+      @battery_discharge ||= @fields['BATT'].try(:to_i) == 0
     end
 
     def battery_voltage
@@ -80,7 +80,7 @@ module CloudConnect
     end
 
     def power_voltage
-      @power_voltage ||= @fields['MDI_EXT_BATT_VOLTAGE'].try(:to_f)
+      @power_voltage ||= (@fields['MDI_EXT_BATT_VOLTAGE'].try(:to_i) || 0) / 1000.0
     end
 
     def direction
