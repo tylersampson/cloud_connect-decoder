@@ -54,12 +54,12 @@ module CloudConnect
       @acceleration ||= \
       case @fields['BEHAVE_ID'].try(:to_i)
       when 11
+        :acceleration
+      when 10
         :braking
       when 12
-        :acceleration
-      when 13
         :left_turn
-      when 14
+      when 13
         :right_turn
       end
     end
