@@ -103,13 +103,5 @@ module CloudConnect
       @rssi ||= @fields['RSSI'].try(:to_i)
     end
 
-    def movement
-      @movement ||= @fields['MVT_STATE'].try(:to_b)
-    end
-
-    def max_speed
-      @max_speed ||= @fields['MDI_MAX_SPEED_JOURNEY'].try(:to_i)
-    end
-
   end
 end
